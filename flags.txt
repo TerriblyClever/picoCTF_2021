@@ -1,0 +1,22 @@
+Binary Exploitation
+
+
+Cryptography
+
+
+Forensics
+
+
+General Skills
+    Static ain't always noise: used 'wget https://mercury.picoctf.net/static/ec4dbd8898ade34e1d60d5b70c1b8c8c/static'
+    to download the flag in the web shell first; tried 'cat static' which output
+    a lot of unreadable characters, so tried 'strings static'; modifed to
+    "strings static | grep 'pico'" to filter for the flag and there it was.
+        flag: picoCTF{d15a5m_t34s3r_98d35619}
+    
+
+
+Reverse Engineering
+
+
+Web Exploitation
