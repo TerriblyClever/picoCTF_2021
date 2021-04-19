@@ -1,0 +1,26 @@
+When I press "i" I enter Insert mode.
+Hit 'esc' to exit Insert mode.
+
+"o" lowercase will insert a line below and let me begin typing.
+"O" uppercase will insert a line above and let you begin typing.
+
+To save your work, hit 'esc' and type ':w' followed by Enter.
+
+To navigate up or down one line at a time, type "k" to move up a line, "j" to move down.
+To navigate right or left, type "l" to move right, and "h" to move left.
+
+To jump ahead or back word by word, use "b" to navigate left, "w" to navigate right.
+
+To jump to the beginning of a line, type "0", end of a line "$"
+Jump to the beginning of a document by typing 'gg' and the end of a document with "G".
+To jump to a specific line, type the line number, followed by 'gg'
+
+To delete a line, type 'dd', or multiple lines by typing a number, followed by 'dd'.
+You can also paste whatever you just deleted by typing 'p'.
+I can delete a single word by placing my cursor on the word, and typing 'dw',
+or delete from where I am to the end of the line with 'D'.
+
+When it comes to editing, 'yy' will copy an entire line, 'p' will paste it below. 
+To copy (yank) multiple lines, type the number of lines you want to copy, followed
+by 'yy'.
+
