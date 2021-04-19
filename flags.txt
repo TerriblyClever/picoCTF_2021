@@ -1,0 +1,43 @@
+Binary Exploitation
+
+
+Cryptography
+    Mod 26 - 10 pts. Pretty simple Caesar Cipher. Appears to only use the alphabet,
+    upper- and lowercase. This was a basic ROT13 cipher, but could be brute-forced easily
+    enough.
+        flag - picoCTF{next_time_I'll_try_2_rounds_of_rot13_aFxtzQWR}
+
+Forensics
+
+
+General Skills
+    Obedient Cat - 5pts. Contained a file I could obtain in the webshell via
+    'wget https://mercury.picoctf.net/static..../flag'. From there I was able to
+    use 'cat flag' to concatenate the contents of the file and obtain the flag.
+        flag - picoCTF{s4n1ty_v3r1f13d_f28ac910}
+
+    Python Wrangling - 10pts. Learned some new webshell skills with this one. Given
+    a python script, flag, and text file containing a password I was able to ru in the 
+    webshell, once, all in the same directory. All files obtained with 'wget'. Learned
+    to pass system arguments to Python. Ran 'python ende.py -d flag.txt.en', the last
+    argument being the text file containing the flag. '-d' was a system argument telling
+    Python to run the Decrypt function in the script.
+        flag - picoCTF{4p0110_1n_7h3_h0us3_6008014f} 
+
+    Wave a flag - 10 pts. Given a file called "warrm" that can be obtained in the webshell via
+    'wget'. Had to make it executable using 'chmod +x warm'. Ran it using ./warm -h to see if 
+    it had any help info, which is where the flag was stored.
+        flag - picoCTF{b1scu1ts_4nd_gr4vy_d6969390}
+    
+    Nice netcat... - 15pts. Used 'nc mercury.picoctf.net 22342' to obtain a string of numbers
+    that were ASCII values. Pretty simple to convert them to characters. Would be interesting 
+    to see if string output could be directly piped to ASCII characters. 
+        flag - picoCTF{g00d_k1tty!_n1c3_k1tty!_5fb5e51d}
+    
+
+
+Reverse Engineering
+
+
+Web Exploitation
+
