@@ -2,15 +2,20 @@ Binary Exploitation
 
 
 Cryptography
+<<<<<<< HEAD
     Mod 26 - 10 pts. Pretty simple Caesar Cipher. Appears to only use the alphabet,
     upper- and lowercase. This was a basic ROT13 cipher, but could be brute-forced easily
     enough.
         flag - picoCTF{next_time_I'll_try_2_rounds_of_rot13_aFxtzQWR}
+=======
+
+>>>>>>> 15e5056014717b4ab03a21b11ae3dfe0ad40b9be
 
 Forensics
 
 
 General Skills
+<<<<<<< HEAD
     Obedient Cat - 5pts. Contained a file I could obtain in the webshell via
     'wget https://mercury.picoctf.net/static..../flag'. From there I was able to
     use 'cat flag' to concatenate the contents of the file and obtain the flag.
@@ -33,11 +38,22 @@ General Skills
     that were ASCII values. Pretty simple to convert them to characters. Would be interesting 
     to see if string output could be directly piped to ASCII characters. 
         flag - picoCTF{g00d_k1tty!_n1c3_k1tty!_5fb5e51d}
+=======
+    Static ain't always noise: used 'wget https://mercury.picoctf.net/static/ec4dbd8898ade34e1d60d5b70c1b8c8c/static'
+    to download the flag in the web shell first; tried 'cat static' which output
+    a lot of unreadable characters, so tried 'strings static'; modifed to
+    "strings static | grep 'pico'" to filter for the flag and there it was.
+        flag: picoCTF{d15a5m_t34s3r_98d35619}
+>>>>>>> 15e5056014717b4ab03a21b11ae3dfe0ad40b9be
     
 
 
 Reverse Engineering
 
 
+<<<<<<< HEAD
 Web Exploitation
 
+=======
+Web Exploitation
+>>>>>>> 15e5056014717b4ab03a21b11ae3dfe0ad40b9be
