@@ -1,5 +1,9 @@
 import string
 
+
+#method set to decrypt or to encrypt
+user_input = input("Would you like to encrypt or decrypt text? (-e or -d)\n").strip().lower()
+
 LOWERCASE_OFFSET = ord("a")
 ALPHABET = string.ascii_lowercase[:16] #take a slice from the beginning (a) through the 16th character
 #added by me
@@ -53,23 +57,46 @@ def unshift(ciphertext, shift_value):
 -Key can only contain letters a-p (lowercase)
 -Key must be 14 letters or less"""
 
-#flag = "redacted" #original line of code
-flag = input("Enter flag to decrypt: ").strip().lower()
-assert all([letter in "abcdef0123456789" for letter in flag])
+if user_input == '-e':
+	#flag = "redacted" #original line of code
+	flag = input("Enter flag to encrypt: ").strip().lower()
+	assert all([letter in "abcdef0123456789" for letter in flag])
 
-#key = "redacted" #original line of code
-key = input("Enter key: ").strip().lower()
-assert all([k in ALPHABET for k in key]) and len(key) < 15 #same assertion as the new_casear, except for the length checker at the end
+	#key = "redacted" #original line of code
+	key = input("Enter key: ").strip().lower()
+	assert all([k in ALPHABET for k in key]) and len(key) < 15 #same assertion as the new_casear, except for the length checker at the end
 
-#same code for execution as the new_caesar challenge
-b16 = b16_encode(flag)
-enc = ""
-for i, c in enumerate(b16):
-	enc += shift(c, key[i % len(key)])
-print("\nFinal Ciphertext:", enc, "\n") #line edited by me to more closely reflect the format of the new_casear challenge
-#print(enc) #original final print line from the coding challenge
+	#same code for execution as the new_caesar challenge
+	b16 = b16_encode(flag)
+	enc = ""
+	for i, c in enumerate(b16):
+		enc += shift(c, key[i % len(key)])
+	print("\nFinal Ciphertext:", enc, "\n") #line edited by me to more closely reflect the format of the new_casear challenge
+	#print(enc) #original final print line from the coding challenge
 
-#added by me
-for letter in ALPHABET:
-	new_text = unshift(ENCRYPTED_FLAG, letter)
-	print(b16_decode(new_text))
+elif user_input == '-d':
+	#unshift the letters in the ENCRYPTED_FLAG
+	flag = input("Enter flag to decrypt: ").strip().lower()
+	
+	key = input("Enter key: ").strip().lower()
+	assert all([k in ALPHABET for k in key]) and len(key) < 15 #same assertion as the new_casear, except for the length checker at the end
+	new_text = unshift(ENCRYPTED_FLAG, "a")
+
+	b16_decoded_text = b16_decode(new_text) 
+	print(b16_decoded_text) #print back for verification
+
+	#convert the new_text to hex because the flag must be in hex
+	hex_text = ""
+	for letter in b16_decoded_text:
+		converted = hex(ord(letter))
+		hex_text += converted[2:]
+	print(hex_text)
+
+else:
+	shifted = ""
+	key = input("Please input a key: \n").strip().lower()
+	for i, c in enumerate(user_input):
+		shifted += shift(c, key[i % len(key)])
+	print(shifted)
+
+	backward = unshift(shifted, )
