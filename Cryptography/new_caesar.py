@@ -14,6 +14,7 @@ def b16_encode(plain):
 	print("\nb16_encoded text:", enc)
 	return enc
 
+#written by me to reverse the above function
 def b16_decode(ciphertext):
 	decoded = ""
 	binary_values = []
@@ -54,6 +55,7 @@ for i, c in enumerate(b16):
 	enc += shift(c, key[i % len(key)])
 print("\nFinal Ciphertext:", enc, "\n")
 
+#added by me in this next section
 #ciphertext = input("Enter ciphertext to be decoded:\n>>> ").strip().lower()
 ciphertext = 'lkmjkemjmkiekeijiiigljlhilihliikiliginliljimiklligljiflhiniiiniiihlhilimlhijil'
 for letter in ALPHABET:
