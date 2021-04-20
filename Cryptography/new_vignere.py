@@ -19,6 +19,7 @@ def b16_encode(plain):
 	return enc
 
 #written by me to reverse the above function, same as the one I wrote for new_ceasear
+#verified that this does in fact perform the reverse of the b_16 encode function 20210420
 def b16_decode(ciphertext):
 	decoded = ""
 	binary_values = []
@@ -44,13 +45,11 @@ def shift(c, k):
 	return ALPHABET[(t1 + t2) % len(ALPHABET)]
 
 #same unshift function written by me that I used in new_caesar
-def unshift(ciphertext, shift_value):
-	unshifted = ""
-	for letter in ciphertext:
-		t1 = ord(letter) - LOWERCASE_OFFSET
-		t2 = ord(shift_value) - LOWERCASE_OFFSET
-		unshifted += ALPHABET[(t1 + t2) % len(ALPHABET)]
-	return unshifted
+#verified this function does in fact perform the reverse of the shift function
+def unshift(c, k):
+	t1 = ord(c) - LOWERCASE_OFFSET
+	t2 = ord(k) - LOWERCASE_OFFSET
+	return ALPHABET[(t1 - t2) % len(ALPHABET)]
 
 """Flag entry and Key verification here
 -Flag must be all hex characters.
@@ -93,10 +92,18 @@ elif user_input == '-d':
 	print(hex_text)
 
 else:
-	shifted = ""
-	key = input("Please input a key: \n").strip().lower()
-	for i, c in enumerate(user_input):
-		shifted += shift(c, key[i % len(key)])
-	print(shifted)
+	flag = 'hello'
+	key = 'abcd'
+	print("Original Flag:", flag)
+	enc = ""
+	#i is the ordinate position in the loop, c is the letter in the flag
+	for i, c in enumerate(flag):
+		enc += shift(c, key[i % len(key)])
+	print("\nVigenere Shifted Flag:", enc)
 
-	backward = unshift(shifted, )
+	dec = ""
+	for i, c in enumerate(enc):
+		dec += unshift(c, key[i % len(key)])
+	print("\nVigenere Unshifted Flag:", dec)
+
+	
